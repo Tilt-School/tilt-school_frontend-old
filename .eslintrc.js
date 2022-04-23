@@ -16,7 +16,9 @@ module.exports = {
 	plugins: ['react', '@typescript-eslint'],
 	settings: {
 		'import/resolver': {
-			typescript: {},
+			typescript: {
+				node: { paths: ['src'] },
+			},
 		},
 	},
 	overrides: [
