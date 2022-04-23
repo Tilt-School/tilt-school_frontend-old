@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "sh -ac '. ./.env.${NODE_ENV}; react-scripts start'",
+    "start:dev": "NODE_ENV=development npm start",
+    "start:prod": "NODE_ENV=production npm start",
+    "build": "sh -ac '. ./.env.${NODE_ENV}; react-scripts build'",
+    "build:dev": "NODE_ENV=development npm run build",
+    "build:prod": "NODE_ENV=production npm run build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --env browser --color --exit-on-fatal-error --max-warnings=0 --ignore-pattern '!.prettierrc.js' .",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx}\""
   },
   "eslintConfig": {
     "extends": [
