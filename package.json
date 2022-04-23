@@ -14,7 +14,8 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --env browser --color --exit-on-fatal-error --max-warnings=0 --ignore-pattern '!.prettierrc.js' .",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
-    "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx}\""
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -32,6 +33,12 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "npm run prettier",
+      "npm run lint"
     ]
   },
   "dependencies": {
