@@ -37,8 +37,8 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "npm run prettier",
-      "npm run lint"
+      "npm run prettier:fix",
+      "npm run lint:fix"
     ]
   },
   "dependencies": {
