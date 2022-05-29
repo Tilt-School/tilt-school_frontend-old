@@ -1,0 +1,64 @@
+@import 'src/styles/media-queries';
+
+.menuItem {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  &:not(:last-child) {
+    margin-bottom: 25px;
+
+    @include for-phone-landscape-only {
+      margin-bottom: 17px;
+    }
+  }
+
+  @include for-tablet-up {
+    $menu-item-transition: .2s;
+
+    padding-left: 25px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: calc(100% + 0px);
+      height: calc(100% + 20px);
+      background-color: var(--main-color);
+      opacity: .3;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform $menu-item-transition linear $menu-item-transition;
+    }
+
+    &.active {
+      &::before {
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform $menu-item-transition linear;
+      }
+    }
+  }
+}
+.menuItemContainer {
+}
+.active {
+}
+.iconWrapper {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+.icon {
+}
+.body {
+}
+.title {
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--white);
+
+  @include for-phone-landscape-only {
+    font-size: 18px;
+  }
+}

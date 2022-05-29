@@ -1,0 +1,60 @@
+@import 'src/styles/media-queries';
+
+$animation-duration: 0.3s;
+$burger-width: 28px;
+$burger-height: 18px;
+$burger-line-height: 1px;
+$center-position: calc((#{$burger-height} - #{$burger-line-height}) / 2);
+.burger {
+  position: relative;
+  width: $burger-width;
+  height: $burger-height;
+  @include for-tablet-up {
+    display: none;
+  }
+}
+
+.line {
+  position: absolute;
+  width: 100%;
+  height: $burger-line-height;
+  background-color: var(--white);
+  left: 0;
+  transform-origin: center;
+  transition: all $animation-duration linear;
+
+  &_1 {
+    top: 0;
+    transform: rotate(0deg);
+    transform-origin: right;
+  }
+  &_2 {
+    width: 75%;
+    top: $center-position;
+    transition: all $animation-duration linear;
+    transform-origin: right;
+  }
+  &_3 {
+    bottom: 0;
+    transform: rotate(0deg);
+  }
+}
+
+.active {
+  .line {
+    transition: all $animation-duration linear, transform $animation-duration linear $animation-duration;
+
+    &_1 {
+      top: $center-position;
+      transform: rotate(45deg);
+      transform-origin: center;
+    }
+    &_2 {
+      transform: scale(0);
+    }
+    &_3 {
+      bottom: $center-position;
+      transform: rotate(-45deg);
+    }
+  }
+}

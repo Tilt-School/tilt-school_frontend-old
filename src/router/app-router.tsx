@@ -1,11 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { routes } from './routes';
+import { MainLayout } from 'src/layouts';
+import { allRoutes } from './routes';
 
 export const AppRouter: React.FC = () => (
-  <Routes>
-    {routes.map((route) => (
-      <Route key={route.path} path={route.path} element={route.element} />
-    ))}
-  </Routes>
+  <MainLayout>
+    <Routes>
+      {allRoutes.map((route) => (
+        <Route key={route.path} path={route.path} element={React.createElement(route.element)} />
+      ))}
+    </Routes>
+  </MainLayout>
 );

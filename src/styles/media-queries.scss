@@ -1,0 +1,70 @@
+// Final media queries, please do not edit it until you discuss with team
+@mixin for-phone-up {
+  @media (min-width: 319.98px) {
+    @content;
+  }
+}
+@mixin for-phone-landscape-up {
+  @media (min-width: 479.98px) {
+    @content;
+  }
+}
+@mixin for-tablet-up {
+  @media (min-width: 767.98px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 991.98px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1199.98px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1799.98px) {
+    @content;
+  }
+}
+@mixin for-phone-landscape-only {
+  @media (max-height: 500.98px) {
+    @content;
+  }
+}
+
+@mixin media-group($keys...) {
+  @each $key in $keys {
+    @if ($key == for-phone-up) {
+      @include for-phone-up {
+        @content
+      }
+    } @else if ($key == for-phone-landscape-up) {
+      @include for-phone-landscape-up {
+        @content
+      }
+    } @else if ($key == for-tablet-up) {
+      @include for-tablet-up {
+        @content
+      }
+    } @else if ($key == for-tablet-landscape-up) {
+      @include for-tablet-landscape-up {
+        @content
+      }
+    } @else if ($key == for-desktop-up) {
+      @include for-desktop-up {
+        @content
+      }
+    } @else if ($key == for-big-desktop-up) {
+      @include for-big-desktop-up {
+        @content
+      }
+    } @else if ($key == for-phone-landscape-only) {
+      @include for-phone-landscape-only {
+        @content
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import 'src/styles/media-queries';
+
+.logoContainer {
+  text-decoration: none;
+}
+.logo {
+  $logo-size: 60px;
+  width: $logo-size;
+  height: $logo-size;
+  margin-right: 20px;
+  display: none;
+
+  @include for-tablet-up {
+    display: block;
+  }
+}
+.logoIcon {
+}
+.logoBody {
+}
+.logoTitle {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--white);
+}

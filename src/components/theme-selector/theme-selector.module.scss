@@ -1,0 +1,18 @@
+.themeSelector {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.themesList {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  list-style: none;
+}
+.themeItem {
+  position: absolute;
+  will-change: transform, width, height, opacity;
+  border-radius: 50%;
+  cursor: pointer;
+}
