@@ -1,0 +1,70 @@
+@import 'src/styles/media-queries';
+
+$animation-duration: 0.3s;
+.menu {
+}
+.menuBody {
+  position: fixed;
+  top: 0;
+  left: calc(var(--sidebar-width) * -1);
+  max-width: var(--sidebar-width);
+  width: 100%;
+  height: 100%;
+  background-color: var(--elements-color);
+  transition: all $animation-duration linear $animation-duration,
+    background-color var(--theme-change-transition-duration) var(--theme-change-transition-timing-function);
+  padding: 80px 20px 20px;
+  z-index: 49;
+
+  @include for-tablet-up {
+    position: initial;
+    width: 100%;
+    left: 0;
+    padding: 0;
+    transition: none;
+    background-color: transparent;
+  }
+}
+.menuList {
+  height: calc(100% - 50px); // 50 = 30 (theme selector height) + 20 (margin between)
+  margin-bottom: 20px;
+  overflow: auto;
+
+  @include for-tablet-up {
+    padding-top: 10px;
+  }
+}
+
+.menuItem {
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--elements-color);
+  transition: background-color var(--theme-change-transition-duration) var(--theme-change-transition-timing-function);
+  z-index: 48;
+
+  @include for-tablet-up {
+    display: none;
+  }
+}
+.active {
+  .menuBody {
+    left: 0;
+  }
+}
+
+.themeSelector {
+  @include for-tablet-up {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
+    padding-left: 20px;
+  }
+}

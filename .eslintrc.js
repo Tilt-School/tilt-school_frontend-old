@@ -32,8 +32,17 @@ module.exports = {
         project: './tsconfig.json',
       },
     },
+    {
+      files: ['*.slice.ts'],
+      rules: {
+        'no-param-reassign': 0,
+      },
+    },
   ],
   rules: {
+    'no-shadow': 'off',
+    'no-underscore-dangle': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
     'react/function-component-definition': [
       'error',
       {
