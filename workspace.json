@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "tilt-school-frontend": "apps/tilt-school-frontend",
+    "tilt-school-frontend-e2e": "apps/tilt-school-frontend-e2e"
+  }
+}
