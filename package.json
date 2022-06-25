@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+    "build": "nx run-many --target=build --projects=tilt-school-frontend",
+    "affected:build": "nx affected --target=build",
+    "ts:start": "nx serve tilt-school-frontend",
+    "ts:build": "nx build tilt-school-frontend",
+    "ts:test": "nx test tilt-school-frontend",
+    "ts:e2e": "nx serve tilt-school-frontend:e2e",
+    "ts:analyze": "nx analyze tilt-school-frontend",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -43,7 +48,9 @@
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "^8.0.1",
     "jest": "27.5.1",
+    "lint-staged": "^13.0.3",
     "nx": "14.3.6",
     "prettier": "^2.6.2",
     "react-test-renderer": "18.2.0",
@@ -51,5 +58,11 @@
     "ts-jest": "27.1.4",
     "ts-node": "~10.8.0",
     "typescript": "~4.7.2"
+  },
+  "lint-staged": {
+    "*": [
+      "nx affected:lint --fix --files",
+      "nx format:write --files"
+    ]
   }
 }
